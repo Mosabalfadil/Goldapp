@@ -1,0 +1,117 @@
+body {
+  margin: 0;
+  direction: rtl;
+  font-family: Arial, sans-serif;
+}
+
+.bg {
+  min-height: 100vh;
+  background: url("background.jpg") no-repeat center center fixed;
+  background-size: cover;
+}
+
+.app {
+  max-width: 1200px;
+  margin: 20px auto;
+  background: rgba(255,255,255,0.95);
+  padding: 20px;
+  border-radius: 15px;
+}
+
+.title {
+  text-align: center;
+  color: #b71c1c;
+}
+
+.group-bar, .buttons, .top-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+input, select {
+  padding: 8px;
+}
+
+button {
+  padding: 8px 14px;
+  background: #b71c1c;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+button.danger {
+  background: #000;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+th {
+  background: #b71c1c;
+  color: white;
+  padding: 8px;
+}
+
+td {
+  border: 1px solid #ddd;
+  padding: 6px;
+  text-align: center;
+}
+
+.login-box {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+  background: rgba(255,255,255,0.9);
+}
+
+.remember {
+  font-size: 14px;
+}
+
+/* DASHBOARD */
+.dashboard {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px,1fr));
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.dashboard .card {
+  background: #b71c1c;
+  color: white;
+  padding: 12px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+/* MODAL */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+}
+
+.modal-content {
+  background: white;
+  padding: 20px;
+  width: 300px;
+  margin: 15% auto;
+  border-radius: 10px;
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: space-between;
+}

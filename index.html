@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Content-Security-Policy"
+content="default-src * 'self' 'unsafe-inline' 'unsafe-eval' data: gap:;">
+
+<title>إدارة المجموعات</title>
+
+<link rel="stylesheet" href="style.css">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+
+<body class="bg">
+
+<script>
+if (localStorage.getItem("LOGIN") !== "1") {
+  location.replace("login.html");
+}
+</script>
+
+<div class="app">
+
+  <div class="top-actions">
+    <button onclick="openChangePass()">🔑 تغيير كلمة المرور</button>
+    <button onclick="logout()" class="danger">🚪 خروج</button>
+  </div>
+
+  <h2 class="title">إدارة المجموعات</h2>
+  <h3 id="currentGroupTitle" class="title"></h3>
+
+  <!-- DASHBOARD -->
+  <div class="dashboard">
+    <div class="card"><span>إجمالي له</span><strong id="sumGive">0.00</strong></div>
+    <div class="card"><span>إجمالي عليه</span><strong id="sumTake">0.00</strong></div>
+    <div class="card"><span>الصافي</span><strong id="sumBalance">0.00</strong></div>
+    <div class="card"><span>عدد الأشخاص</span><strong id="countPersons">0</strong></div>
+    <div class="card"><span>إجمالي الميز</span><strong id="sumShops">0.00</strong></div>
+  </div>
+
+  <div class="group-bar">
+    <input id="groupNameInput" placeholder="اسم المجموعة">
+    <button onclick="createGroup()">➕ إنشاء مجموعة</button>
+
+    <select id="groupSelect" onchange="selectGroup()"></select>
+    <button onclick="deleteGroup()" class="danger">🗑 حذف المجموعة</button>
+
+    <input id="searchInput" placeholder="بحث بالاسم" oninput="searchInGroup()">
+
+    <button onclick="backup()">⬇️ نسخة احتياطية</button>
+    <button onclick="exportPDF()">📄 تصدير PDF</button>
+  </div>
+
+  <div class="buttons">
+    <button onclick="addPerson()">➕ إضافة شخص</button>
+    <button onclick="addShop()">➕ إضافة ميز</button>
+  </div>
+
+  <h3 class="title">الأشخاص</h3>
+  <table id="personsTable"></table>
+
+  <h3 class="title">الميز / المشتريات</h3>
+  <table id="shopsTable"></table>
+</div>
+
+<!-- تغيير كلمة المرور -->
+<div id="changePassBox" class="modal">
+  <div class="modal-content">
+    <h3>تغيير كلمة المرور</h3>
+    <input id="oldPass" type="password" placeholder="كلمة المرور القديمة">
+    <input id="newPass" type="password" placeholder="كلمة المرور الجديدة">
+
+    <div class="modal-buttons">
+      <button onclick="changePassword()">حفظ</button>
+      <button onclick="closeChangePass()" class="danger">إلغاء</button>
+    </div>
+
+    <p id="passMsg"></p>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
